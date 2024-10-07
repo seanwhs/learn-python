@@ -1,0 +1,1 @@
+https://github.com/PacktPublishing/Machine-Learning-Projects-with-TensorFlow-2.0

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/air-bnb-styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction App</h1>
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="minimum_nights">Minimum Nights: <span id="minimum_nights_value">1</span></label>
+                <input type="range" id="minimum_nights" name="minimum_nights" min="1" max="365" step="1" value="1" oninput="updateLabel('minimum_nights', 'minimum_nights_value')" required>
+            </div>
+            <div class="form-group">
+                <label for="number_of_reviews">Number of Reviews: <span id="number_of_reviews_value">0</span></label>
+                <input type="range" id="number_of_reviews" name="number_of_reviews" min="0" max="500" step="1" value="0" oninput="updateLabel('number_of_reviews', 'number_of_reviews_value')" required>
+            </div>
+            <div class="form-group">
+                <label for="reviews_per_month">Reviews Per Month: <span id="reviews_per_month_value">0</span></label>
+                <input type="range" id="reviews_per_month" name="reviews_per_month" min="0" max="30" step="0.01" value="0" oninput="updateLabel('reviews_per_month', 'reviews_per_month_value')" required>
+            </div>
+            <div class="form-group">
+                <label for="calculated_host_listings_count">Host Listings Count: <span id="calculated_host_listings_count_value">1</span></label>
+                <input type="range" id="calculated_host_listings_count" name="calculated_host_listings_count" min="1" max="100" step="1" value="1" oninput="updateLabel('calculated_host_listings_count', 'calculated_host_listings_count_value')" required>
+            </div>
+            <div class="form-group">
+                <label for="availability_365">Availability (Days): <span id="availability_365_value">0</span></label>
+                <input type="range" id="availability_365" name="availability_365" min="0" max="365" step="1" value="0" oninput="updateLabel('availability_365', 'availability_365_value')" required>
+            </div>
+            <div class="form-group">
+                <label for="neighbourhood_group">Neighbourhood Group:</label>
+                <select id="neighbourhood_group" name="neighbourhood_group">
+                    <option value="0">Brooklyn</option>
+                    <option value="1">Manhattan</option>
+                    <option value="2">Queens</option>
+                    <option value="3">Staten Island</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="room_type">Room Type:</label>
+                <select id="room_type" name="room_type">
+                    <option value="0">Private room</option>
+                    <option value="1">Shared room</option>
+                </select>
+            </div>
+            <button type="button" class="btn" onclick="submitForm()">Submit</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/air-bnb.js') }}"></script>
+</body>
+</html>
